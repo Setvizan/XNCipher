@@ -1,3 +1,3 @@
-Hello world!
-This really sucks!
-
+Hello man!
+This is my new bitwise Cipher it uses XOR and NOT.
+It's pretty simple but i'm bad at it.

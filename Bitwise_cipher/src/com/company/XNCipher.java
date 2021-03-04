@@ -3,8 +3,9 @@ import java.io.*;
 
 public class XNCipher {
 
-    static void encode(String path,int shift) throws IOException {
+    static void file(String path,int shift) throws IOException {
         File file = new File(path);
+
         BufferedReader br = new BufferedReader(new FileReader(file));
         String content = "";
         String line;
@@ -17,6 +18,8 @@ public class XNCipher {
             }
             content += "\n";
         }
-        System.out.print(content);
+        FileWriter writer = new FileWriter(file);
+        writer.write(content);
+        writer.close();
     }
 }
