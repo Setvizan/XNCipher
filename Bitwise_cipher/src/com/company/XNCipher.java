@@ -4,7 +4,7 @@ import java.io.*;
 /*
 Author: Nino Arisona
 Made on: 4.3.2021
-Description: Basic Cipher using bitwise to switch chars in UTF-32
+Description: Basic Cipher using bitwise to switch chars in UTF-8
 */
 public class XNCipher {
 
