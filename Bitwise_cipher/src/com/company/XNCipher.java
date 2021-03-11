@@ -1,25 +1,29 @@
 package com.company;
 import java.io.*;
 
+/*
+Author: Nino Arisona
+Made on: 4.3.2021
+Description: Basic Cipher using bitwise to switch chars in UTF-32
+*/
 public class XNCipher {
 
-    static void file(String path,int shift) throws IOException {
-        File file = new File(path);
-
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String content = "";
-        String line;
-        while((line = br.readLine()) != null){
-            char [] char_arr = line.toCharArray();
+    public void file(String absolute_path,int shift) throws IOException {
+        File file = new File(absolute_path);                            //get file
+        BufferedReader br = new BufferedReader(new FileReader(file));   //make BufferedReader
+        StringBuilder content = new StringBuilder();                    //make StringBuilder
+        String line;                                                    //declare String for
+        while((line = br.readLine()) != null){                          //read all lines in text
+            char [] char_arr = line.toCharArray();                      //line to char array
             for( char value : char_arr){
-                value = (char) ~((int) value);
-                value = (char) ((int) value ^ shift);
-                content += value;
+                value = (char) ~((int) value);                          //NOT bitwise
+                value = (char) ((int) value ^ shift);                   //XOR bitwise using inputted Shift
+                content.append(value);                                  //append new vale
             }
-            content += "\n";
+            content.append("\n");                                       //add line break after line
         }
-        FileWriter writer = new FileWriter(file);
-        writer.write(content);
+        FileWriter writer = new FileWriter(file);                       //write file
+        writer.write(content.toString());
         writer.close();
     }
 }
